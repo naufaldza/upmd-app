@@ -58,9 +58,14 @@ return [
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
+            'options' => array_filter([
+                // Jika ada settingan SSL CA di .env (Laptop), pakai itu
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]) : [],
+                
+                // PENTING UNTUK VERCEL: Nonaktifkan verifikasi sertifikat yang ketat
+                // karena kita pakai serverless
+                PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+            ]),
         ],
 
         'mariadb' => [
