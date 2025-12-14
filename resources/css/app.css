@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* 1. Import Font Montserrat dari Google Fonts */
+/* Saya ambilkan variasi ketebalan lengkap agar heading terlihat gagah */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+/* 2. Set Montserrat sebagai font utama (Sans) */
+@theme {
+    --font-sans: "Montserrat", sans-serif;
+}
